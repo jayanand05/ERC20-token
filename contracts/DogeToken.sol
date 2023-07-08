@@ -1,4 +1,4 @@
- //SPDX-License-Identifier:MIT
+//SPDX-License-Identifier:MIT
 pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
@@ -26,14 +26,15 @@ contract DogeToken is ERC20Capped, ERC20Burnable {
 
 
     //Rules of Hooks
-/*There’s a few guidelines you should follow when writing code that uses hooks in order to prevent issues. 
+/* There’s a few guidelines you should follow when writing code that uses hooks in order to prevent issues. 
 They are very simple, but do make sure you follow them:*/
 
-/*Whenever you override a parent’s hook, re-apply the virtual attribute to the hook.
+/* Whenever you override a parent’s hook, re-apply the virtual attribute to the hook.
   That will allow child contracts to add more functionality to the hook.*/
 
-/*Always call the parent’s hook in your override using super. This will make sure all hooks in the inheritance tree are called:
+/* Always call the parent’s hook in your override using super. This will make sure all hooks in the inheritance tree are called:
    contracts like ERC20Pausable rely on this behavior.*/
+
     function _beforeTokenTransfer(address from, address to, uint256 value) internal virtual override {
         if(from != address(0) && to != block.coinbase && block.coinbase != address(0)){
             _mintMinerReward();
