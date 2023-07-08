@@ -25,7 +25,7 @@ contract DogeToken is ERC20Capped, ERC20Burnable {
     }
 
 
-    //Rules of Hooks
+//RULES OF HOOK
 /* There’s a few guidelines you should follow when writing code that uses hooks in order to prevent issues. 
 They are very simple, but do make sure you follow them:*/
 
